@@ -1,0 +1,17 @@
+Client ID: test.console.gscdn.com
+
+admin@console.test
+role:ROLE_ADMIN
+org:GS
+grp:GS-HQ,Nflint
+email:admin@console.test
+mobile:010-1234-5678
+
+user@console.test
+role:ROLE_USER
+org:CB
+grp:CP-T1
+email:user@console.test
+mobile:010-1234-5678
+
+gaga562379

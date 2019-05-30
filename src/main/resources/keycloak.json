@@ -1,0 +1,10 @@
+{
+	"realm": "master",
+	"auth-server-url": "https://iam.apps.codengs.com/auth",
+	"ssl-required": "none",
+	"resource": "test.console.gscdn.com",
+	"verify-token-audience": true,
+	"credentials": {
+		"secret": "55c5ca1b-cf29-4805-beeb-608aeca76428"
+	}
+}

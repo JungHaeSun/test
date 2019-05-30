@@ -1,0 +1,28 @@
+.an_table{
+	width:100%;
+}
+ 
+
+
+.admList{
+	cursor:hand;
+	cursor:pointer;
+}
+
+
+/* 커스텀 */
+.table td, .table th {
+    vertical-align: middle;
+}
+
+table th {
+  text-align:center;	
+}
+
+
+.form-check {
+    margin-bottom:0;
+}
+
+/* 박스 */
+ 

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.op.user.site.notice.NoticeDao">
+
+    <select id="findNoticeList" resultType="com.op.user.site.notice.Notice" parameterType="com.op.user.site.notice.Notice">
+		SELECT nt_idx,nt_type,nt_time,nt_title,nt_hit,a.adm_idx,b.adm_name FROM notice a, admin b WHERE a.adm_idx = b.adm_idx
+		<if test="search_type != null and !search_type.equals('') ">
+			AND ${search_type} LIKE CONCAT('%',#{search_word},'%')
+		</if>
+		order by nt_type
+		LIMIT #{startRow}, #{endRow}
+    </select>
+
+	<select id="getNoticeCount" resultType="java.lang.Integer" parameterType= "com.op.user.site.notice.Notice">
+		SELECT count(1) as cnt FROM notice as a WHERE 1=1
+		<if test="search_type != null and !search_type.equals('') ">
+			AND ${search_type} LIKE CONCAT('%',#{search_word},'%')
+		</if>
+	</select>
+	
+	<delete id="deleteNotice" parameterType= "com.op.user.site.notice.Notice">
+		DELETE FROM notice WHERE nt_idx = #{nt_idx}
+	</delete>
+	
+	<update id="updateNotice" parameterType= "com.op.user.site.notice.Notice">
+		UPDATE notice set nt_type = #{nt_type}
+						 ,nt_title = #{nt_title}
+						 ,nt_text = #{nt_text}						 
+					WHERE nt_idx = #{nt_idx}
+	</update>
+	
+	<select id="findNoticeView" resultType="com.op.user.site.notice.Notice" parameterType= "com.op.user.site.notice.Notice">
+		SELECT nt_idx,nt_type,nt_time,nt_title,nt_text,nt_hit,a.adm_idx,b.adm_name FROM notice a, admin b WHERE a.adm_idx = b.adm_idx
+		AND nt_idx = #{nt_idx}
+	</select>
+
+
+</mapper>
